@@ -1,0 +1,277 @@
+
+public class InstrumentTest {
+	public static void main(String[] args) {
+		
+	    Guitar guitar = new Guitar();
+		guitar.use();
+		guitar.tuneStrings();
+		guitar.play();
+		guitar.pluck();
+		
+		Violin violin = new Violin();
+		violin.use();
+		violin.tuneStrings();
+		violin.play();
+		violin.bow();
+//The method pluck() is undefined for the 
+		//type StringBasedMusicalInstrument		
+		Flute flute=new Flute();
+		flute.use();
+		flute.blowAir();
+		flute.tonguing();
+		flute.play();
+		
+		Harmonica harmonica=new Harmonica();
+		harmonica.use();
+		harmonica.blowAir();
+		harmonica.bending();
+		harmonica.lipPursing();
+		harmonica.play();
+		
+		SurgicalCutter surgicalCutter=new SurgicalCutter();
+		surgicalCutter.use();
+		surgicalCutter.operate();
+		surgicalCutter.sterile();
+		surgicalCutter.incision();
+		
+		SurgicalNeedle surgicalNeedle= new SurgicalNeedle();
+		surgicalNeedle.use();
+		surgicalNeedle.operate();
+		surgicalNeedle.sterile();
+		surgicalNeedle.suture();
+		surgicalNeedle.biopsy();
+		
+		GlucoMeter glucoMeter=new GlucoMeter();
+		glucoMeter.use();
+		glucoMeter.operate();
+		glucoMeter.reader();
+		glucoMeter.diabetesMgmnt();
+		glucoMeter.insulingDosing();
+		
+		ECGMachine ecgMachine= new ECGMAchine();
+		ecgMachine.use();
+		ecgMachine.operate();
+		ecgMachine.reader();
+		ecgMachine.monitor();
+		ecgMachine.assessment();
+		
+l
+}
+}
+
+interface Instrument
+{
+	void use(); //by default method is public and abstract
+}
+abstract class MusicalInstrument implements Instrument
+{
+	abstract void play();
+}
+abstract class StringBasedMusicalInstrument extends MusicalInstrument
+{
+	abstract void tuneStrings();
+}
+class Guitar extends StringBasedMusicalInstrument
+{
+	public void use() {
+		System.out.println("Using Guitar...");
+	}
+	void play() {
+		System.out.println("Playing Guitar...");
+
+	}
+	void tuneStrings() {
+		System.out.println("Tuning Strings of Guitar...");
+
+	}
+	void pluck() {
+		System.out.println("Plucking Strings of Guitar...");
+
+	}
+}
+
+
+class Violin extends StringBasedMusicalInstrument
+{
+	public void use() {
+		System.out.println("Using Violin...");
+	}
+	void play() {
+		System.out.println("Playing Violin...");
+
+	}
+	void tuneStrings() {
+		System.out.println("Tuning Strings of Violin...");
+
+	}
+	void bow() {
+		System.out.println("Bowing Strings of Violin...");
+
+	}
+}
+abstract class AirBasedMusicalInstrument extends MusicalInstrument
+{
+    abstract void blowAir();
+}
+
+class Flute extends AirBasedMusicalInstrument
+{
+    public void use() {
+		System.out.println("Using Flute");
+	}
+	void play() {
+		System.out.println("Playing Flute");
+
+	}
+	
+	void blowAir()
+	{
+	    System.out.println("Blowing air in flute");
+	}
+	
+	void tonguing()
+	{
+	    System.out.println("Tonguing into flute");
+	}
+}
+
+class Harmonica extends AirBasedMusicalInstrument
+{
+    public void use() {
+		System.out.println("Using Harmonica");
+	}
+	void play() {
+		System.out.println("Playing Harmonica");
+
+	}
+	
+	void blowAir()
+	{
+	    System.out.println("Blowing air in Harmonica");
+	}
+	
+	void bending()
+	{
+	    System.out.println("Bending in Harmonica");
+	}
+	
+	void lipPursing()
+	{
+	    System.out.println("Pursing in Harmonica");
+	}
+}
+
+abstract class MedicalInstrument implements Instrument
+{
+    abstract void operate();
+}
+
+abstract class SurgicalInstrument extends MedicalInstrument
+{
+    abstract void sterile();
+}
+
+class SurgicalCutter extends SurgicalInstrument
+{
+    void use()
+    {
+        System.out.println("Using Surgical Cutter");
+    }
+    void operate()
+    {
+        System.out.println("Operating Surgical Cutter");
+    }
+    
+    void sterile()
+    {
+        System.out.println("Sterilizing Surgical Cutter");
+    }
+    
+    void incision()
+    {
+        System.out.println("Incisioning using cutter");
+    }
+}
+
+class SurgicalNeedle extends SurgicalInstrument
+{
+    void use()
+    {
+        System.out.println("Using Surgical Needle");
+    }
+    void operate()
+    {
+        System.out.println("Operating Surgical Needle");
+    }
+    
+    void sterile()
+    {
+        System.out.println("Sterilizing Surgical Needle");
+    }
+    
+    void suture()
+    {
+        System.out.println("Suturing with needle");
+    }
+    
+    void tissue biopsy()
+    {
+        System.out.println("Extracting small tissue samples with help of needle");
+    }
+}
+
+abstract class PathologicalInstrument extends MedicalInstrument
+{
+    abstract void reader();
+}
+
+class Glucometer extends PathologicalInstrument
+{
+    void use()
+    {
+        System.out.println("Using the Glacometer");
+    }
+    void operate()
+    {
+        System.out.println("Operating the Glocometer");
+    }
+    void reader()
+    {
+    System.out.println("Reading with help of glucometer");
+    }
+    void diabetesMgmnt()
+    {
+        System.out.println("Monitoring blood glucose");
+    }
+    void insulingDosing()
+    {
+        System.out.println("Determine appropriate insulin dosage");
+    }
+}
+    
+class ECGMachine
+    {
+        void use()
+    {
+        System.out.println("Using the ECGMachine");
+    }
+    void operate()
+    {
+        System.out.println("Operating the ECGMachine");
+    }
+    void reader()
+    {
+    System.out.println("Reading with help of ECGMachine");
+    }
+    
+    void monitor()
+    {
+        System.out.println(" monitoring the heart's electrical activity over time")
+    }
+    
+    void assessment()
+    {
+        System.out.println("evaluate heart's health and assess any potential risks associated with anesthesia and surgery.")
+    }
+
+    }

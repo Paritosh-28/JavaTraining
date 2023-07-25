@@ -1,0 +1,50 @@
+public class Office {
+    public static void main(String[] args) {
+        DSGSEmployee emp1 = new DSGSEmployee("Paritosh", 22);
+        DSGSEmployee emp2 = new DSGSEmployee("Priya", 23);
+
+        System.out.println("Total Employees: " + DSGSEmployee.getTotalEmployees());
+        System.out.println("Employee 1 ID: " + emp1.getEmployeeId());
+        System.out.println("Employee 2 ID: " + emp2.getEmployeeId());
+
+        System.out.println("\nEmployee 1 Information:");
+        emp1.displayInfo();
+
+        System.out.println("\nEmployee 2 Information:");
+        emp2.displayInfo();
+    }
+}
+
+final class DSGSEmployee {
+    private static int totalEmployees = 0;
+    private final int employeeId;
+    private String empName;
+    private int empAge;
+
+    public DSGSEmployee(String name, int age) {
+        this.empName = name;
+        this.empAge = age;
+        totalEmployees= ++totalEmployees;
+	this.employeeId=totalEmployees;
+    }
+
+    public static int getTotalEmployees() {
+        return totalEmployees;
+    }
+
+    public final int getEmployeeId() {
+        return EmployeeId;
+    }
+
+    public void Coding() {
+        System.out.println(empName + " is coding.");
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + empName);
+        System.out.println("Age: " + empAge);
+        System.out.println(" ID: "+ EmployeeId);
+    }
+
+}
+
