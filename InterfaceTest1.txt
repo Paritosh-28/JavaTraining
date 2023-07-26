@@ -39,7 +39,7 @@ public class InstrumentTest {
 		surgicalNeedle.operate();
 		surgicalNeedle.sterile();
 		surgicalNeedle.suture();
-		surgicalNeedle.biopsy();
+		surgicalNeedle.tissueBiopsy();
 		
 		GlucoMeter glucoMeter=new GlucoMeter();
 		glucoMeter.use();
@@ -48,14 +48,13 @@ public class InstrumentTest {
 		glucoMeter.diabetesMgmnt();
 		glucoMeter.insulingDosing();
 		
-		ECGMachine ecgMachine= new ECGMAchine();
+		ECGMachine ecgMachine= new ECGMachine();
 		ecgMachine.use();
 		ecgMachine.operate();
 		ecgMachine.reader();
 		ecgMachine.monitor();
 		ecgMachine.assessment();
 		
-l
 }
 }
 
@@ -63,14 +62,17 @@ interface Instrument
 {
 	void use(); //by default method is public and abstract
 }
+
 abstract class MusicalInstrument implements Instrument
 {
 	abstract void play();
 }
+
 abstract class StringBasedMusicalInstrument extends MusicalInstrument
 {
 	abstract void tuneStrings();
 }
+
 class Guitar extends StringBasedMusicalInstrument
 {
 	public void use() {
@@ -173,7 +175,7 @@ abstract class SurgicalInstrument extends MedicalInstrument
 
 class SurgicalCutter extends SurgicalInstrument
 {
-    void use()
+    public void use()
     {
         System.out.println("Using Surgical Cutter");
     }
@@ -195,7 +197,7 @@ class SurgicalCutter extends SurgicalInstrument
 
 class SurgicalNeedle extends SurgicalInstrument
 {
-    void use()
+    public void use()
     {
         System.out.println("Using Surgical Needle");
     }
@@ -214,7 +216,7 @@ class SurgicalNeedle extends SurgicalInstrument
         System.out.println("Suturing with needle");
     }
     
-    void tissue biopsy()
+    void tissueBiopsy()
     {
         System.out.println("Extracting small tissue samples with help of needle");
     }
@@ -225,9 +227,9 @@ abstract class PathologicalInstrument extends MedicalInstrument
     abstract void reader();
 }
 
-class Glucometer extends PathologicalInstrument
+class GlucoMeter extends PathologicalInstrument
 {
-    void use()
+    public void use()
     {
         System.out.println("Using the Glacometer");
     }
@@ -266,12 +268,12 @@ class ECGMachine
     
     void monitor()
     {
-        System.out.println(" monitoring the heart's electrical activity over time")
+        System.out.println(" monitoring the heart's electrical activity over time");
     }
     
     void assessment()
     {
-        System.out.println("evaluate heart's health and assess any potential risks associated with anesthesia and surgery.")
+        System.out.println("evaluate heart's health and assess any potential risks associated with anesthesia and surgery.");
     }
 
     }
